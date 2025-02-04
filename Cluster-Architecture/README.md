@@ -92,5 +92,4 @@ Worker nodes run application workloads assigned by the master node. Each worker 
 - Kubernetes provides **services, deployments, namespaces, and networking policies** for managing applications.
 - **Networking** ensures seamless communication between Pods and external systems.
 
-This documentation provides an overview of **Kubernetes cluster architecture**, detailing its core components and functions. 🚀
 

@@ -1,0 +1,27 @@
+# This is a more complex Pod definition with multiple containers, environment variables, and a volume.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: complex-pod
+  labels:
+    app: multi-container-demo
+spec:
+  volumes:
+  - name: config-volume      # Define a volume named 'config-volume'
+    configMap:               # This volume is populated from a ConfigMap
+      name: app-config       # Name of the ConfigMap to use
+  containers:
+  - name: app-container
+    image: myapp:1.0         # Custom application image
+    ports:
+    - containerPort: 8080    # Expose port 8080
+    env:
+    - name: ENVIRONMENT      # Set an environment variable inside the container
+      value: "production"
+    volumeMounts:
+    - name: config-volume    # Mount the 'config-volume' into this container
+      mountPath: /etc/config # Directory in the container where the volume will be mounted
+  - name: sidecar-container
+    image: busybox           # A lightweight container for auxiliary tasks
+    command: ["sh", "-c", "while true; do echo 'Sidecar running'; sleep 10; done"]
+    # This container runs a simple loop to demonstrate a sidecar container.

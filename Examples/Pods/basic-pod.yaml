@@ -1,0 +1,13 @@
+# This is a basic Pod definition
+apiVersion: v1               # API version to use (v1 is for core Kubernetes objects)
+kind: Pod                   # This resource is a Pod
+metadata:
+  name: basic-pod           # Name of the Pod
+  labels:                   # Optional labels to help identify and group this Pod
+    app: demo
+spec:
+  containers:
+  - name: nginx-container   # Name of the container within the Pod
+    image: nginx:latest     # Container image to run (using the official nginx image)
+    ports:
+    - containerPort: 80     # Port exposed by the container (used by nginx)

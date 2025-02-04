@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: complex-replicaset       # Unique name for this ReplicaSet
+  labels:
+    app: complex-demo           # Label for grouping and selection
+spec:
+  replicas: 4                   # Desired number of replicas
+  selector:
+    matchLabels:
+      app: complex-demo         # Pods must have this label to be managed by this ReplicaSet
+  template:
+    metadata:
+      labels:
+        app: complex-demo       # Must match the selector defined above
+    spec:
+      containers:
+      - name: web               # Main container name
+        image: nginx:1.19       # A specific version of the nginx image
+        ports:
+        - containerPort: 80     # Expose port 80
+        env:
+        - name: ENVIRONMENT     # Define an environment variable for the container
+          value: production
+        volumeMounts:
+        - name: config-volume   # Mount a volume for configuration files
+          mountPath: /etc/nginx/conf.d
+      volumes:
+      - name: config-volume       # Define the volume sourced from a ConfigMap
+        configMap:
+          name: nginx-config      # Reference an existing ConfigMap named 'nginx-config'

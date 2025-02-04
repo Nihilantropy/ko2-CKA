@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: advanced-replicaset     # Unique name for this advanced ReplicaSet
+  labels:
+    app: advanced-app           # Primary application label
+    tier: frontend              # Additional label to denote the application tier
+spec:
+  replicas: 5                   # Desired number of Pod replicas
+  selector:                     # selector is only used in ReplicaSet and not in ReplicationController. This allow the ReplicaSet to use replicas of already-existing pods that falls under the same label section
+    matchLabels:
+      app: advanced-app         # Selector matching Pods with this label
+  template:
+    metadata:
+      labels:
+        app: advanced-app       # Must match the selector above
+        tier: frontend
+    spec:
+      containers:
+      - name: main-container    # Primary application container
+        image: myapp:2.0        # Custom application image
+        ports:
+        - containerPort: 8080   # Expose application port
+        env:
+        - name: ENVIRONMENT
+          value: production     # Static environment variable
+        - name: CONFIG_VAR
+          valueFrom:            # Pull an environment variable from a ConfigMap
+            configMapKeyRef:
+              name: app-config  # ConfigMap name
+              key: config_var   # Key within the ConfigMap
+        resources:
+          requests:
+            cpu: "250m"         # Resource request for CPU
+            memory: "256Mi"     # Resource request for memory
+          limits:
+            cpu: "500m"         # Maximum CPU limit
+            memory: "512Mi"     # Maximum memory limit
+        volumeMounts:
+        - name: config-volume     # Mount volume for configuration
+          mountPath: /etc/app
+        readinessProbe:           # Probe to check if container is ready
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:            # Probe to ensure the container is alive
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        lifecycle:                # Define lifecycle hooks
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "sleep 10"]  # Graceful shutdown hook
+      - name: sidecar-logger     # Sidecar container for logging purposes
+        image: fluentd:latest     # Fluentd image for log forwarding/aggregation
+        env:
+        - name: FLUENTD_CONF
+          value: fluent.conf      # Fluentd configuration file
+        volumeMounts:
+        - name: log-volume        # Mount shared volume for logs
+          mountPath: /var/log/myapp
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+      affinity:                   # Define scheduling preferences
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                - ssd             # Only schedule on nodes with SSD storage
+      tolerations:                # Allow scheduling on tainted nodes if tolerated
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoSchedule"
+      volumes:
+      - name: config-volume         # Volume for configuration from a ConfigMap
+        configMap:
+          name: app-config
+      - name: log-volume            # Ephemeral volume for log storage
+        emptyDir: {}
+  revisionHistoryLimit: 3         # Limit the number of old ReplicaSet revisions kept
+  minReadySeconds: 10             # Minimum seconds a Pod should be ready before considered available
+  progressDeadlineSeconds: 600    # Deadline in seconds for a ReplicaSet to make progress
