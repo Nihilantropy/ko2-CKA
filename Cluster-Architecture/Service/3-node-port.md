@@ -16,7 +16,8 @@ The **NodePort** service is a Kubernetes service type that exposes an applicatio
 ### **1.2. Integration with ClusterIP**
 
 - **Underlying ClusterIP**: Every NodePort service also has an associated ClusterIP. The NodePort merely serves as an external access point that routes traffic into the cluster’s internal network.
-- **Traffic Flow**: Incoming traffic on the NodePort is forwarded to the ClusterIP, and then load-balanced among the pods selected by the service's label selector.
+- **Traffic Flow**: Incoming traffic on the NodePort is forwarded to the ClusterIP, and then load-balanced among the pods selected by the service's label selector. The loadbalancer use a `Random` algorithm to direct the traffic to the pods (i.e. if multpile pods with the same lable listen on the same port, if a pod is part of a replicaset).
+- **Case study**: If more pods with the same label and listening port are spanned among multiple nodes, kubernetes will automatically create a `Service` than spans across all the nodes in the cluster to correctly loadbalance incoming traffic to the pods with the same Random algorithm.
 
 ### **1.3. Use Cases**
 
@@ -42,7 +43,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: my-app
+    app: my-app        # This will select the pod with the same lable
   ports:
     - protocol: TCP
       port: 80         # Service port (accessed via ClusterIP)
