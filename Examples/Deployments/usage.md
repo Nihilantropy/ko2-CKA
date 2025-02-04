@@ -9,3 +9,8 @@ kubectl get deployment
 ```bash
 kubectl create -f <deployment-filename>.yaml
 ```
+
+- **Create Deployments yaml by CLI**
+```bash
+kubectl create deployment --image=<image> "<other-options>" --dry-run=client'#(to prevent server creation)' -o yaml > <yaml-file-name>.yaml
+```
