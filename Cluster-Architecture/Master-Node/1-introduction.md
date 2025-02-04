@@ -1,4 +1,4 @@
-# **Kubernetes Master Node - High-Level Overview**
+# ** 1️⃣ Kubernetes Master Node - High-Level Overview**
 
 ## **Introduction**
 The **Master Node**, also known as the **Control Plane**, is the central component of a Kubernetes cluster. It is responsible for managing the cluster, scheduling workloads, maintaining the desired state, and ensuring communication between various components. The Master Node consists of several key components that work together to orchestrate containerized applications efficiently.
@@ -62,4 +62,32 @@ The **Master Node** is the control center of a Kubernetes cluster, ensuring effi
 
 ### **Next Steps**
 We will now dive deeper into each Master Node component, exploring their roles, configurations, and best practices in detail.
+
+---
+
+## **References**
+
+1. **Master Node Overview**
+   - [Kubernetes Master Node Concepts](https://kubernetes.io/docs/concepts/overview/components/)
+   - [Understanding Kubernetes Control Plane](https://kubernetes.io/docs/concepts/overview/control-plane-components/)
+
+2. **API Server (`kube-apiserver`)**
+   - [API Server - Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#api-versions-v1-meta)
+   - [Kubernetes API Overview](https://kubernetes.io/docs/reference/kubernetes-api/)
+
+3. **Scheduler (`kube-scheduler`)**
+   - [Scheduler - Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/)
+
+4. **Controller Manager (`kube-controller-manager`)**
+   - [Controller Manager Overview](https://kubernetes.io/docs/concepts/overview/components/#controller-manager)
+
+5. **etcd (Distributed Key-Value Store)**
+   - [etcd - Kubernetes](https://kubernetes.io/docs/concepts/overview/components/#etcd)
+
+6. **Cloud Controller Manager (Optional)**
+   - [Cloud Controller Manager Overview](https://kubernetes.io/docs/concepts/overview/components/#cloud-controller-manager)
+
+7. **Master Node High Availability**
+   - [High Availability in Kubernetes](https://kubernetes.io/docs/setup/production-environment/tools/kops/high-availability/)
+   - [Kubernetes Control Plane High Availability](https://kubernetes.io/docs/setup/production-environment/high-availability/)
 

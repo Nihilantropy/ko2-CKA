@@ -1,4 +1,4 @@
-# kube-apiserver Detailed Documentation
+# 2️⃣ kube-apiserver Detailed Documentation
 
 ## Overview
 
@@ -90,9 +90,34 @@ The `kube-apiserver` is the front-end of the Kubernetes control plane. It expose
 
 The `kube-apiserver` is the cornerstone of the Kubernetes control plane, ensuring that all operations are validated, securely processed, and persisted reliably. Understanding its architecture, configuration, and best practices is vital for maintaining a robust and scalable Kubernetes cluster.
 
-## References
+---
 
-- [Kubernetes Official Documentation](https://kubernetes.io/docs/home/)
-- [API Server Design](https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver)
-- [etcd Documentation](https://etcd.io/docs/)
+## **References**
 
+1. **Kube-API Server Overview**
+   - [Kubernetes Official Documentation](https://kubernetes.io/docs/home/)
+   - [API Server Design - Kubernetes](https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver)
+
+2. **Authentication & Authorization**
+   - [Kubernetes Authentication Overview](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+   - [Role-Based Access Control (RBAC) in Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+
+3. **Admission Control**
+   - [Admission Controllers Overview](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/)
+   - [Built-in Admission Controllers](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#built-in-admission-controllers)
+
+4. **etcd Integration**
+   - [etcd Documentation](https://etcd.io/docs/)
+   - [Kubernetes and etcd Integration](https://kubernetes.io/docs/concepts/overview/components/#etcd)
+
+5. **API Server High Availability**
+   - [High Availability for Kubernetes API Server](https://kubernetes.io/docs/setup/production-environment/high-availability/)
+   - [Leader Election in Kubernetes](https://kubernetes.io/docs/concepts/overview/components/#leader-election)
+
+6. **Configuration & Deployment**
+   - [API Server Configuration](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)
+   - [Kubernetes Security Settings](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/)
+
+7. **Troubleshooting & Best Practices**
+   - [Kubernetes Troubleshooting](https://kubernetes.io/docs/tasks/debug/debug-cluster/)
+   - [Logging and Monitoring Kubernetes](https://kubernetes.io/docs/tasks/debug/debug-cluster/logging/)

@@ -1,4 +1,4 @@
-# etcd Detailed Documentation
+# 5️⃣ etcd Detailed Documentation
 
 ## Overview
 
@@ -115,8 +115,28 @@
 
 **etcd** is a critical component in Kubernetes, providing a reliable, consistent, and highly available data store for the cluster's configuration and state. Understanding its architecture, configuration, and best practices is essential for maintaining a resilient and performant Kubernetes environment.
 
-## References
+---
 
-- [etcd Official Documentation](https://etcd.io/docs/)
-- [Kubernetes Official Documentation - etcd](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
-- [RAFT Consensus Algorithm](https://raft.github.io/)
+## **References**
+
+1. **etcd Overview & Architecture**
+   - [etcd Documentation](https://etcd.io/docs/)
+   - [etcd Key-Value Store](https://etcd.io/docs/v3.5/op-guide/key-value/)
+   - [etcd Consensus & RAFT Algorithm](https://etcd.io/docs/v3.5/op-guide/raft/)
+   
+2. **etcd Configuration & Deployment**
+   - [etcd Cluster Setup](https://etcd.io/docs/v3.5/op-guide/clustering/)
+   - [Deploying etcd in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/configure-etcd/)
+   
+3. **etcd Security & Access Control**
+   - [etcd Security Best Practices](https://etcd.io/docs/v3.5/op-guide/security/)
+   - [etcd TLS Encryption](https://etcd.io/docs/v3.5/op-guide/tls-configuration/)
+   - [etcd Authentication and Authorization](https://etcd.io/docs/v3.5/op-guide/authentication/)
+
+4. **etcd Backup & Recovery**
+   - [etcd Backup and Restore](https://etcd.io/docs/v3.5/op-guide/recovery/)
+   - [etcd Backup Strategies](https://etcd.io/docs/v3.5/op-guide/backups/)
+
+5. **Monitoring & Troubleshooting**
+   - [Monitoring etcd with Prometheus](https://etcd.io/docs/v3.5/op-guide/monitoring/)
+   - [etcd Logging and Troubleshooting](https://etcd.io/docs/v3.5/op-guide/logging/)

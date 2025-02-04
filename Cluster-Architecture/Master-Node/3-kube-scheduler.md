@@ -1,4 +1,4 @@
-# kube-scheduler Detailed Documentation
+# 3️⃣ kube-scheduler Detailed Documentation
 
 ## Overview
 
@@ -99,8 +99,31 @@ The scheduler uses a two-phase approach:
 
 The `kube-scheduler` plays a pivotal role in ensuring that Pods are efficiently and fairly distributed across the cluster. By combining filtering and scoring mechanisms, it ensures that each Pod is assigned to the most appropriate Worker Node based on resource availability and policy constraints. Understanding its operation, configuration, and extensibility options is essential for optimizing cluster performance and reliability.
 
-## References
+---
 
-- [Kubernetes Official Documentation - Scheduling](https://kubernetes.io/docs/concepts/scheduling-eviction/)
-- [Scheduler Extender Documentation](https://kubernetes.io/docs/concepts/architecture/scheduler-extender/)
-- [Kube-scheduler Source Code](https://github.com/kubernetes/kubernetes/tree/master/pkg/scheduler)
+## **References**
+
+1. **Kube-Scheduler Overview**
+   - [Kubernetes Kube-Scheduler Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/)
+   - [Kube-Scheduler Design](https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler)
+   
+2. **Scheduling Process**
+   - [Kubernetes Scheduling Overview](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/)
+   - [Pod Scheduling in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/scheduler-configuration/)
+   
+3. **Predicates & Priorities**
+   - [Scheduling Predicates](https://kubernetes.io/docs/concepts/scheduling-eviction/predicate-logic/)
+   - [Scheduling Priorities](https://kubernetes.io/docs/concepts/scheduling-eviction/priority-logic/)
+   
+4. **Custom Scheduler Configuration**
+   - [Kube-Scheduler Configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-scheduler/)
+   - [Scheduling with Custom Policies](https://kubernetes.io/docs/tasks/administer-cluster/scheduler-configuration/#using-policy-config-file)
+   
+5. **High Availability & Scalability**
+   - [Kube-Scheduler High Availability](https://kubernetes.io/docs/tasks/administer-cluster/highly-available-kube-scheduler/)
+   - [Leader Election in Kubernetes](https://kubernetes.io/docs/reference/using-api/leader-election/)
+   
+6. **Troubleshooting & Best Practices**
+   - [Troubleshooting Scheduling](https://kubernetes.io/docs/tasks/debug/debug-cluster/scheduler-troubleshooting/)
+   - [Monitoring Kube-Scheduler](https://kubernetes.io/docs/tasks/debug/debug-cluster/scheduler-monitoring/)
+

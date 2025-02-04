@@ -1,0 +1,21 @@
+apiVersion: apps/v1                # Use the apps/v1 API version for Deployment
+kind: Deployment                  # This object is a Deployment
+metadata:
+  name: base-deployment           # Unique name for the Deployment
+  labels:
+    app: demo                   # Label to identify the Deployment
+spec:
+  replicas: 3                   # Desired number of Pod replicas
+  selector:                     # Selector to match Pods managed by this Deployment
+    matchLabels:
+      app: demo
+  template:                     # Template for creating Pods
+    metadata:
+      labels:
+        app: demo               # Labels for the Pod, must match the selector above
+    spec:
+      containers:
+      - name: nginx             # Container name within the Pod
+        image: nginx:latest     # Container image to run
+        ports:
+        - containerPort: 80     # Port exposed by the container

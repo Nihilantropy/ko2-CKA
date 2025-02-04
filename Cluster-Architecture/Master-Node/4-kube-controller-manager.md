@@ -1,4 +1,4 @@
-# kube-controller-manager Detailed Documentation
+# 4️⃣ kube-controller-manager Detailed Documentation
 
 ## Overview
 
@@ -100,8 +100,46 @@ The `kube-controller-manager` is a key component of the Kubernetes control plane
 
 The `kube-controller-manager` is essential for maintaining the health and desired state of a Kubernetes cluster. By running a variety of controllers, it automates critical tasks such as scaling, self-healing, and resource management. A deep understanding of its responsibilities, architecture, and configuration is key to ensuring a resilient and efficient Kubernetes environment.
 
-## References
+---
 
-- [Kubernetes Official Documentation - Controller Manager](https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager)
-- [Source Code - Kubernetes Controller Manager](https://github.com/kubernetes/kubernetes/tree/master/pkg/controller)
-- [High Availability in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/highly-available-master/)
+## **References**
+
+1. **Kube-Controller-Manager Overview**
+   - [Kube-Controller-Manager Documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)
+   - [Kubernetes Controller Concepts](https://kubernetes.io/docs/concepts/architecture/controller/)
+
+2. **Node Controller**
+   - [Node Controller Overview](https://kubernetes.io/docs/concepts/architecture/nodes/)
+   - [Managing Node Health in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/manage-nodes/)
+
+3. **Replication Controller / ReplicaSet Controller**
+   - [ReplicationController in Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)
+   - [ReplicaSet Controller Overview](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+
+4. **Endpoints Controller**
+   - [Endpoints Controller Overview](https://kubernetes.io/docs/concepts/services-networking/service/#endpoint)
+
+5. **Service Account & Token Controllers**
+   - [Service Accounts in Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/service-account/)
+   - [Authentication with Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+
+6. **Job Controller**
+   - [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+
+7. **Deployment Controller**
+   - [Deployments in Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
+8. **Horizontal Pod Autoscaler Controller**
+   - [Horizontal Pod Autoscaler in Kubernetes](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+
+9. **Controller-Manager Configuration**
+   - [Configuring kube-controller-manager](https://kubernetes.io/docs/tasks/administer-cluster/configure-kube-controller-manager/)
+
+10. **Leader Election and High Availability**
+    - [Leader Election in Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/leader-election/)
+    - [Ensuring High Availability in Kubernetes](https://kubernetes.io/docs/tutorials/high-availability/)
+
+11. **Troubleshooting and Best Practices**
+    - [Kubernetes Troubleshooting](https://kubernetes.io/docs/tasks/debug/debug-cluster/)
+    - [Kubernetes Monitoring](https://kubernetes.io/docs/tasks/debug/debug-cluster/debug-logs/)
+
