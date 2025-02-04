@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-service
+  # No additional metadata needed for a base service
+spec:
+  type: ClusterIP   # Default service type for internal communication
+  selector:
+    app: basic-app  # Pods with the label "app: basic-app" will be selected
+  ports:
+    - protocol: TCP
+      port: 80         # The port that the service will expose inside the cluster
+      targetPort: 8080 # The port on the pods that the service routes traffic to

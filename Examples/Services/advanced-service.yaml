@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: advanced-service
+  namespace: production  # Specifies the namespace where the service is deployed
+  labels:
+    app: advanced-app
+    tier: backend
+  annotations:
+    # AWS-specific annotations to configure the external load balancer behavior
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
+    # Additional annotations could be added here for further customization (e.g., health checks)
+spec:
+  type: LoadBalancer   # Provisions an external load balancer via the cloud provider
+  externalTrafficPolicy: Local   # Preserves the client’s source IP (useful for logging and security)
+  selector:
+    app: advanced-app
+    tier: backend      # Only pods with both labels "app: advanced-app" and "tier: backend" are selected
+  sessionAffinity: ClientIP  # Enables sticky sessions based on client IP addresses
+  ports:
+    - name: web
+      protocol: TCP
+      port: 80         # Exposes HTTP traffic on port 80
+      targetPort: 8080 # Routes traffic to port 8080 on the selected pods
+    - name: secure-web
+      protocol: TCP
+      port: 443        # Exposes HTTPS traffic on port 443
+      targetPort: 8443 # Routes traffic to port 8443 on the selected pods
+  # Restrict external access to specific IP ranges for added security
+  loadBalancerSourceRanges:
+    - 192.168.0.0/16  # Only allow traffic from the 192.168.0.0/16 network
+    - 203.0.113.0/24  # And from the 203.0.113.0/24 network
