@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: basic-config
+  namespace: default
+data:
+  app.mode: "production"
+  app.loglevel: "debug"
+  app.host: "localhost"
+  app.port: "8080"

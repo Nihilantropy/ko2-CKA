@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: complex-config
+  namespace: default
+data:
+  # Configuration values for the application
+  app.mode: "production"
+  app.loglevel: "info"
+  app.host: "localhost"
+  app.port: "8080"
+  
+  # File-based configuration
+  config1.json: |
+    {
+      "setting1": "value1",
+      "setting2": "value2"
+    }
+  config2.yaml: |
+    settingA: valueA
+    settingB: valueB
+
+  # A configuration file for database connection
+  db-config.conf: |
+    dbHost=127.0.0.1
+    dbPort=5432
+    dbUser=admin
+    dbPassword=secretpassword

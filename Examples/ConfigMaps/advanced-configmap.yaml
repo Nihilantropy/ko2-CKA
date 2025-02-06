@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: advanced-config
+  namespace: default
+data:
+  # Simple key-value pairs
+  app.mode: "staging"
+  app.loglevel: "error"
+  app.host: "app-service"
+  app.port: "9090"
+  
+  # JSON config file
+  app.config.json: |
+    {
+      "configKey1": "configValue1",
+      "configKey2": "configValue2"
+    }
+  
+  # A YAML file for application settings
+  app.config.yaml: |
+    key1: value1
+    key2: value2
+    key3: value3
+
+  # Database configuration (with environment variable references)
+  db-config.conf: |
+    dbHost={{ .Env.DB_HOST }}
+    dbPort={{ .Env.DB_PORT }}
+    dbUser={{ .Env.DB_USER }}
+    dbPassword={{ .Env.DB_PASSWORD }}
+
+  # Complex multi-line value
+  specialFeatureSettings: |
+    feature1: "enabled"
+    feature2: "disabled"
+    feature3: "enabled"
+    
+  # Additional example file configurations
+  api-settings.conf: |
+    apiTimeout=30
+    apiRetryCount=5
+  
+  # Application mode specific config for different environments (using selectors)
+  staging-config.yaml: |
+    mode: "staging"
+    serviceEndpoint: "https://staging.api.com"
+  production-config.yaml: |
+    mode: "production"
+    serviceEndpoint: "https://api.com"
+  
+  # Multi-line key for custom environment variables (e.g., secrets handling)
+  app.secret-key: |
+    "verySecretValue1234"
